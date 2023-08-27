@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FeedbackForm } from './FeedbackForm/FeedbackForm';
 import { Section } from './Section/Section';
 import { Statistic } from './Statistic/Statistic';
+import { Message } from './Message/Message';
 import { GlobalStyle } from './GlobalStyle';
 
 export class App extends Component {
@@ -18,7 +19,6 @@ export class App extends Component {
     this.setState(prevState => ({
     [option]: prevState[option] + 1,
 
-      // quizItems: prevState.quizItems.filter(quiz => quiz.id !== quizId),
     }));
   };
 
@@ -48,15 +48,17 @@ export class App extends Component {
     
         
         <Section title="Statistics">
-          <Statistic
+          {this.totalFeedback() !== 0 ?
+            (<Statistic
             good={this.state.good}
             bad={this.state.bad}
             neutral={this.state.neutral}
             total={this.totalFeedback()}
             positive={this.positiveFeedback()}
-          />
-
-          
+          />):(<Message message="There is no feedback"/> )
+        
+        }
+        
 
         </Section>
         <GlobalStyle/>

@@ -1,5 +1,5 @@
 import { FeedBackBtns } from '../FeedBackBtns/FeedBackBtns';
-
+import { List} from './FeedbackForm.styled';
 import PropTypes from 'prop-types';
 
 
@@ -7,13 +7,13 @@ import PropTypes from 'prop-types';
 
 export const FeedbackForm = ({options,leaveFeedback}) => {
     return (
-        <ul>
+        <List>
             {options.map(option => (
                 
                 <FeedBackBtns option={option} leaveFeedback={leaveFeedback} />
             ))}
               
-        </ul>
+        </List>
   );
 };
 
